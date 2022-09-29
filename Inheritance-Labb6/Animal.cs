@@ -10,22 +10,24 @@ namespace Petting_Zoo
 {
     internal class Animal  
         //Baseclass for Animals meant for inheriting the values in a child-class
-        //Nonsensical variables for animals, but kinda funny for debugging
+        
     {
-        protected string _Name;
+        protected string _Name; // name for the Animal in question
         protected int _NumberOfAppendages;
-        protected int _Age;
-        protected int _Population;
+        protected int _Age; // if applicable
+        protected int _Population; // the sheer number of Animals of this type, added for things like schools of fish or a murder of crows
         protected string _AnimalDiet; // Carnivore, Herbivore, Omnivore
         protected bool _HasYoung; // assuming normaly that they dont have young due to Zoo enviroment
         protected bool _HasBeenFedToday; // assuming no they hav'nt been fed yet
         protected bool _Wild; //assuming the Animal is Wild or New to the Zoo
         protected string _Sound;
-        protected bool _SentientErrorCheck; // funny joke varaible for checking default class values.
+        protected bool _SentientErrorCheck; //joke varaible for checking default class values.
 
 
         protected Animal() //Default variable value's
+                           //Nonsensical variables for animals, but kinda funny for debugging
         {
+
             this._Name = "Rules of the internet: if enountered Something went Wrong...";
             this._NumberOfAppendages = 63;
             this._Age = 34;
@@ -38,10 +40,8 @@ namespace Petting_Zoo
             this._SentientErrorCheck = false;
         }
         protected Animal(string name, int appendages,int age,int population,string animalDiet
-                ,bool hasYoung,bool hasBeenFed,bool wild,string sound,bool sentient)
+                ,bool hasYoung,bool hasBeenFed,bool wild,string sound)
             //full population of variables for the Base Animal Class,
-            //name - if it's a wild animal leave as Unknown or empty
-            //animalDiet refers to if it's a Carnivore,Herbivore,Omnivore
         {
             this._Name = name;
             this._NumberOfAppendages = appendages;
@@ -52,7 +52,7 @@ namespace Petting_Zoo
             this._HasBeenFedToday = hasBeenFed;
             this._Wild = wild;
             this._Sound = sound;
-            this._SentientErrorCheck = sentient;
+            this._SentientErrorCheck = false;
         }
 
         public void MakeSound()
@@ -103,7 +103,7 @@ namespace Petting_Zoo
             this._HasBeenFedToday = false;
             this._Wild = true;
             this._SentientErrorCheck = true;
-            this._Sound = "Meow!, i'm an Interdemisional being, stop fussing over me mortal!";
+            this._Sound = "Meow!, i'm a ExtraSolar being, stop fussing over me Human!";
 
         }//empty with default values
     }
@@ -190,8 +190,9 @@ namespace Petting_Zoo
             this._HasBeenFedToday = false;
             this._Wild = true;
             this._SentientErrorCheck = true;
-            this._Sound = "I am the Admiral," +
-                " and you will follow my command Soldier or i will have you tossed in the brig for insubordination";
+            this._Sound = "No You cannot have CatNip on this Ship!" +
+                "I am the Admiral," +
+                " and you will follow my command Soldier or i will have you tossed in the brig for insubordination"; // continues in NorwegianForestCat
         }
 
     }
