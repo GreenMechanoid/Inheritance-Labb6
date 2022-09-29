@@ -18,9 +18,14 @@ namespace Inheritance_Labb6
         bool Wild = false; //assuming the Animal is Wild 
         string sound = "";
 
-        void MakeSomeSounds(string makeSounds)
+        void makeSounds(string makeSounds)
         {
             Console.WriteLine(makeSounds);
+        }
+
+        void ÉnclosureMaintenance() 
+        {
+            
         }
 
     }
@@ -28,26 +33,25 @@ namespace Inheritance_Labb6
 
     internal class Cats : Animal 
     {
-        string _Breed = "";
+        string _Breed = "Tabby mcTabbington";
         bool _NeedsPetting = false;
     }
 
-    internal class Wolf : Animal
+    internal class Dogs : Animal
+    {
+
+    }
+
+    internal class Wolf : Dogs
     {
         
     }
-
-    internal class Octopus : Animal
-    {
-        bool _HasEscapedRecently = false; // notorius for escaping thier tanks
-    }
-
     internal class Leopard : Cats 
     { 
         
     }
 
-    internal class ThundraWolf : Animal
+    internal class ThundraWolf : Dogs
     {
         bool _EnclosureIsColdEnough = false; //assuming that the AC has failed during the night
 
