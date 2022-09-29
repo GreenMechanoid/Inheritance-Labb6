@@ -1,12 +1,15 @@
-﻿using System;
+﻿//Daniel Svensson .Net22 - Lab6 - Arv
 
-namespace Inheritance_Labb6
+using System;
+namespace Petting_Zoo //yes im making this a petting zoo, Skritches to the animal! =)
 {
     class Program
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            
+
+
         }
     }
 }
