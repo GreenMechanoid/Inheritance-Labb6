@@ -12,141 +12,151 @@ namespace Petting_Zoo
         //Baseclass for Animals meant for inheriting the values in a child-class
         
     {
-        protected string _Name; // name for the Animal in question
-        protected int _NumberOfAppendages;
-        protected int _Age; // if applicable
-        protected int _Population; // the sheer number of Animals of this type, added for things like schools of fish or a murder of crows
-        protected string _AnimalDiet; // Carnivore, Herbivore, Omnivore
-        protected bool _HasYoung; // assuming normaly that they dont have young due to Zoo enviroment
-        protected bool _HasBeenFedToday; // assuming no they hav'nt been fed yet
-        protected bool _Wild; //assuming the Animal is Wild or New to the Zoo
-        protected string _Sound;
-        protected bool _SentientErrorCheck; //joke varaible for checking default class values.
+        protected string Name; // name for the Animal in question
+        protected int NumberOfAppendages;
+        protected int Age; // if applicable
+        protected int Population; // the sheer number of Animals of this type, added for things like schools of fish or a murder of crows
+        protected string AnimalDiet; // Carnivore, Herbivore, Omnivore
+        protected bool HasYoung; // assuming normaly that they dont have young due to Zoo enviroment
+        protected bool HasBeenFedToday; // assuming no they hav'nt been fed yet
+        protected bool Wild; //assuming the Animal is Wild or New to the Zoo
+        protected string Sound;
+        protected bool SentientErrorCheck; //joke varaible for checking default class values.
+        protected bool IsAvailableForPublic = false;
 
 
         protected Animal() //Default variable value's
                            //Nonsensical variables for animals, but kinda funny for debugging
         {
 
-            this._Name = "Rules of the internet: if enountered Something went Wrong...";
-            this._NumberOfAppendages = 63;
-            this._Age = 34;
-            this._Population = 35;
-            this._AnimalDiet = "Not an Animal in the typical sense";
-            this._HasYoung = false;
-            this._HasBeenFedToday = false;
-            this._Wild = false;
-            this._Sound = "There is no sound";
-            this._SentientErrorCheck = false;
+            this.Name = "Rules of the internet: if enountered Something went Wrong...";
+            this.NumberOfAppendages = 63;
+            this.Age = 34;
+            this.Population = 35;
+            this.AnimalDiet = "Not an Animal in the typical sense";
+            this.HasYoung = false;
+            this.HasBeenFedToday = false;
+            this.Wild = false;
+            this.Sound = "There is no sound";
+            this.SentientErrorCheck = false;
         }
         protected Animal(string name, int appendages,int age,int population,string animalDiet
                 ,bool hasYoung,bool hasBeenFed,bool wild,string sound)
             //full population of variables for the Base Animal Class,
         {
-            this._Name = name;
-            this._NumberOfAppendages = appendages;
-            this._Age = age;
-            this._Population = population;
-            this._AnimalDiet = animalDiet;
-            this._HasYoung = hasYoung;
-            this._HasBeenFedToday = hasBeenFed;
-            this._Wild = wild;
-            this._Sound = sound;
-            this._SentientErrorCheck = false;
+            this.Name = name;
+            this.NumberOfAppendages = appendages;
+            this.Age = age;
+            this.Population = population;
+            this.AnimalDiet = animalDiet;
+            this.HasYoung = hasYoung;
+            this.HasBeenFedToday = hasBeenFed;
+            this.Wild = wild;
+            this.Sound = sound;
+            this.SentientErrorCheck = false;
         }
 
         public void MakeSound()
         {
             //Method asks for the Obj's Sound variable and prints it to console, if it's empty it will use the default value
-            Console.WriteLine(this._Sound);
+            Console.WriteLine(this.Sound);
         }
         
+        public void MakeNewAnimal(string name, int appendages, int age, int population, string animalDiet
+                , bool hasYoung, bool hasBeenFed, bool wild, string sound) // when animals arrive to the zoo
+        {
+            
+        }
+        public void AvailableForPublic(bool available) // when they are transfered or otherwise not longer with the zoo
+        {
+
+        }
 
     }
 
 
     internal class Cats : Animal 
     {
-        protected string _Breed;
-        protected bool _WantsPetting;
+        protected string Breed;
+        protected bool WantsPetting;
 
 
-        protected Cats(string name, int appendages, int age, int population
+        public Cats(string name, int appendages, int age, int population
             , string animalType, bool hasYoung, bool beenFed
             , bool wild, bool sentient, string sound, string breed, bool petting)
         {
-            this._Name = name;
-            this._NumberOfAppendages = appendages;
-            this._Age = age;
-            this._Population = population;
-            this._AnimalDiet = animalType;
-            this._HasYoung = hasYoung;
-            this._HasBeenFedToday = beenFed;
-            this._Wild = wild;
-            this._SentientErrorCheck = sentient;
-            this._Sound = sound;
+            this.Name = name;
+            this.NumberOfAppendages = appendages;
+            this.Age = age;
+            this.Population = population;
+            this.AnimalDiet = animalType;
+            this.HasYoung = hasYoung;
+            this.HasBeenFedToday = beenFed;
+            this.Wild = wild;
+            this.SentientErrorCheck = sentient;
+            this.Sound = sound;
 
-            this._Breed = breed;
-            this._WantsPetting = petting;
+            this.Breed = breed;
+            this.WantsPetting = petting;
         }
-        protected Cats()
+        public Cats()
         {
-            this._Breed = "Tabby mcTabbington";
-            this._WantsPetting = false;
+            this.Breed = "Tabby mcTabbington";
+            this.WantsPetting = false;
 
-            this._Name = "Terror of McError";
-            this._NumberOfAppendages = 4;
-            this._Age = 6428;
-            this._Population = 1;
-            this._AnimalDiet = "Carnivore";
-            this._HasYoung = false;
-            this._HasBeenFedToday = false;
-            this._Wild = true;
-            this._SentientErrorCheck = true;
-            this._Sound = "Meow!, i'm a ExtraSolar being, stop fussing over me Human!";
+            this.Name = "Terror of McError";
+            this.NumberOfAppendages = 4;
+            this.Age = 6428;
+            this.Population = 1;
+            this.AnimalDiet = "Carnivore";
+            this.HasYoung = false;
+            this.HasBeenFedToday = false;
+            this.Wild = true;
+            this.SentientErrorCheck = true;
+            this.Sound = "Meow!, i'm a ExtraSolar being, stop fussing over me Human!";
 
         }//empty with default values
     }
 
     internal class Dogs : Animal
     {
-        protected string _Breed;
-        protected bool _WantsToPlay; 
-        protected Dogs()
+        protected string Breed;
+        protected bool WantsToPlay; 
+        public Dogs()
         {
-            this._Breed = "Labby Sloberton";
-            this._WantsToPlay = false; // no it's sleepy time! 
+            this.Breed = "Labby Sloberton";
+            this.WantsToPlay = false; // no it's sleepy time! 
 
-            this._Name = "'Sir Woofington'";
-            this._NumberOfAppendages = 4;
-            this._Age = 1248;
-            this._Population = 1;
-            this._AnimalDiet = "Carnivore";
-            this._HasYoung = false;
-            this._HasBeenFedToday = false;
-            this._Wild = true;
-            this._SentientErrorCheck = true;
-            this._Sound = "Woof!, Don't trust the cats. they are up to NO good i tell you!";
+            this.Name = "'Sir Woofington'";
+            this.NumberOfAppendages = 4;
+            this.Age = 1248;
+            this.Population = 1;
+            this.AnimalDiet = "Carnivore";
+            this.HasYoung = false;
+            this.HasBeenFedToday = false;
+            this.Wild = true;
+            this.SentientErrorCheck = true;
+            this.Sound = "Woof!, Don't trust the cats. they are up to NO good i tell you!";
 
         }//empty with default values
-        protected Dogs(string name, int appendages, int age, int population
+        public Dogs(string name, int appendages, int age, int population
             , string animalType, bool hasYoung, bool beenFed
             , bool wild,bool sentient, string sound,string breed, bool wantsToPlay)
         {
 
-            this._Breed = breed;
-            this._WantsToPlay = wantsToPlay;
+            this.Breed = breed;
+            this.WantsToPlay = wantsToPlay;
 
-            this._Name = name;
-            this._NumberOfAppendages = appendages;
-            this._Age = age;
-            this._Population = population;
-            this._AnimalDiet = animalType;
-            this._HasYoung = hasYoung;
-            this._HasBeenFedToday = beenFed;
-            this._Wild = wild;
-            this._SentientErrorCheck = sentient;
-            this._Sound = sound;
+            this.Name = name;
+            this.NumberOfAppendages = appendages;
+            this.Age = age;
+            this.Population = population;
+            this.AnimalDiet = animalType;
+            this.HasYoung = hasYoung;
+            this.HasBeenFedToday = beenFed;
+            this.Wild = wild;
+            this.SentientErrorCheck = sentient;
+            this.Sound = sound;
         }
     }
 
@@ -158,40 +168,40 @@ namespace Petting_Zoo
     {
 
 
-        Manx(string breed, bool petting, string name, int appendages, int age, int population
+        public Manx(string breed, bool petting, string name, int appendages, int age, int population
             , string animalType, bool hasYoung, bool beenFed
             , bool wild, bool sentient, string sound) // 
         {
-            this._Breed = breed;
-            this._WantsPetting = petting;
+            this.Breed = breed;
+            this.WantsPetting = petting;
 
-            this._Name = name;
-            this._NumberOfAppendages = appendages;
-            this._Age = age;
-            this._Population = population;
-            this._AnimalDiet = animalType;
-            this._HasYoung = hasYoung;
-            this._HasBeenFedToday = beenFed;
-            this._Wild = wild;
-            this._SentientErrorCheck = sentient;
-            this._Sound = sound;
+            this.Name = name;
+            this.NumberOfAppendages = appendages;
+            this.Age = age;
+            this.Population = population;
+            this.AnimalDiet = animalType;
+            this.HasYoung = hasYoung;
+            this.HasBeenFedToday = beenFed;
+            this.Wild = wild;
+            this.SentientErrorCheck = sentient;
+            this.Sound = sound;
         }
-        Manx()
+        public Manx()
         {
-            this._Breed = "I'm not a proper Instance";
-            this._WantsPetting = false;
+            this.Breed = "I'm not a proper Instance";
+            this.WantsPetting = false;
 
-            this._Name = "Admiral Floofers";
-            this._NumberOfAppendages = 4;
-            this._Age = 8844;
-            this._Population = 1;
-            this._AnimalDiet = "Undefined";
-            this._HasYoung = false;
-            this._HasBeenFedToday = false;
-            this._Wild = true;
-            this._SentientErrorCheck = true;
-            this._Sound = "No You cannot have CatNip on this Ship!" +
-                "I am the Admiral," +
+            this.Name = "Captain. Floofers the second";
+            this.NumberOfAppendages = 4;
+            this.Age = 8844;
+            this.Population = 1;
+            this.AnimalDiet = "Undefined";
+            this.HasYoung = false;
+            this.HasBeenFedToday = false;
+            this.Wild = true;
+            this.SentientErrorCheck = true;
+            this.Sound = "No You cannot have CatNip on this Ship!" +
+                "I am the Captain," +
                 " and you will follow my command Soldier or i will have you tossed in the brig for insubordination"; // continues in NorwegianForestCat
         }
 
@@ -201,40 +211,40 @@ namespace Petting_Zoo
     internal class NorwegianForestCat : Cats
     {
         
-        NorwegianForestCat(string breed, bool petting, string name, int appendages, int age, int population
+        public NorwegianForestCat(string breed, bool petting, string name, int appendages, int age, int population
             , string animalType, bool hasYoung, bool beenFed
             , bool wild, bool sentient, string sound)
         {
-            this._Breed = breed;
-            this._WantsPetting = petting;
+            this.Breed = breed;
+            this.WantsPetting = petting;
 
-            this._Name = name;
-            this._NumberOfAppendages = appendages;
-            this._Age = age;
-            this._Population = population;
-            this._AnimalDiet = animalType;
-            this._HasYoung = hasYoung;
-            this._HasBeenFedToday = beenFed;
-            this._Wild = wild;
-            this._SentientErrorCheck = sentient;
-            this._Sound = sound;
+            this.Name = name;
+            this.NumberOfAppendages = appendages;
+            this.Age = age;
+            this.Population = population;
+            this.AnimalDiet = animalType;
+            this.HasYoung = hasYoung;
+            this.HasBeenFedToday = beenFed;
+            this.Wild = wild;
+            this.SentientErrorCheck = sentient;
+            this.Sound = sound;
         }
 
-        NorwegianForestCat()
+        public NorwegianForestCat()
         {
-            this._Breed = "I'm not a proper Instance";
-            this._WantsPetting = false;
+            this.Breed = "I'm not a proper Instance";
+            this.WantsPetting = false;
 
-            this._Name = "Ensign Flick";
-            this._NumberOfAppendages = 4;
-            this._Age = 256;
-            this._Population = 1;
-            this._AnimalDiet = "Undefined";
-            this._HasYoung = false;
-            this._HasBeenFedToday = false;
-            this._Wild = true;
-            this._SentientErrorCheck = true;
-            this._Sound = "Sir Yes Sir! - (mumbles under breath, you overfloofed wet blanket..)";
+            this.Name = "Ensign Flick";
+            this.NumberOfAppendages = 4;
+            this.Age = 256;
+            this.Population = 1;
+            this.AnimalDiet = "Undefined";
+            this.HasYoung = false;
+            this.HasBeenFedToday = false;
+            this.Wild = true;
+            this.SentientErrorCheck = true;
+            this.Sound = "Sir Yes Sir! - (mumbles under breath, you overfloofed wet blanket..)";
         }
     }
 
