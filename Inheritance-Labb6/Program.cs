@@ -15,6 +15,11 @@ namespace Petting_Zoo //yes im making this a petting zoo, Skritches to the anima
             anima.MakeSound();
 
             cat.MakeSound();
+
+            cat.AnimalMoveing();
+            
+            
         }
+
     }
 }
