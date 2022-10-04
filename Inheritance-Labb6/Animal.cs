@@ -71,11 +71,6 @@ namespace Petting_Zoo
             
         }
 
-        public virtual void ModifyAnimal() // Method will be used in case of incorrect input in the making of the animal
-        {
-
-        }
-
     }
 
 
@@ -118,10 +113,7 @@ namespace Petting_Zoo
             this.Sound = "Meow!, i'm a ExtraSolar being, stop fussing over me Human!";
 
         }//empty with default values
-        public override void ModifyAnimal()
-        {
 
-        }
     }
 
     internal class Dogs : Animal
@@ -163,10 +155,7 @@ namespace Petting_Zoo
             this.SentientErrorCheck = sentient;
             this.Sound = sound;
         }
-        public override void ModifyAnimal()
-        {
 
-        }
     }
 
     internal class Sheep : Animal
@@ -175,7 +164,7 @@ namespace Petting_Zoo
 
         public Sheep()
         {
-            this.Breed = "Master of Shears";
+            this.Breed = "Master of Shears - Ladoum";
             this.Name = "Doc Shearington'";
             this.NumberOfAppendages = 4;
             this.Age = 1248;
@@ -206,10 +195,7 @@ namespace Petting_Zoo
             this.SentientErrorCheck = sentient;
             this.Sound = sound;
         }
-        public override void ModifyAnimal()
-        {
 
-        }
     }
     internal class Manx : Cats 
     {
@@ -252,10 +238,7 @@ namespace Petting_Zoo
                 " and you will follow my command Soldier or i will have you tossed in the brig for insubordination"; // continues in NorwegianForestCat
             this.CatQuirk = "Iron-will Captain";
         }
-        public override void ModifyAnimal()
-        {
 
-        }
     }
 
 
@@ -299,9 +282,6 @@ namespace Petting_Zoo
             this.Sound = "Sir Yes Sir! - (mumbles under breath, you overfloofed wet blanket..)";
             this.FurPattern = "Speckeled gray long hair";
         }
-        public override void ModifyAnimal() 
-        {
 
-        }
     }
 }
