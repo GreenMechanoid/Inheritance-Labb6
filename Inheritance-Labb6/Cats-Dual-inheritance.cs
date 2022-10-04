@@ -46,7 +46,7 @@ namespace Petting_Zoo
             this.Sound = "Meow!, i'm a ExtraSolar being, stop fussing over me Human!";
 
         }
-        public void ChangeMood()
+        public void ChangeMood() //simple usage of unique variable in a method
         {
             string inputString;
             Console.WriteLine("Current mood of {0} is {1}, Has it's mood changed? Y/any", this.Name, this.CurrentMood);
@@ -105,7 +105,7 @@ namespace Petting_Zoo
                 " and you will follow my command Soldier or i will have you tossed in the brig for insubordination"; // continues in NorwegianForestCat
             this.CatQuirk = "Iron-will Captain";
         }
-        public void GainedCatQuirk()
+        public void GainedCatQuirk()//simple usage of unique variable in a method
         {
             string inputString;
             Console.WriteLine("Has {0} Aquired a new Quirk?  Y/any other for no", this.Name);
@@ -164,7 +164,7 @@ namespace Petting_Zoo
             this.CatNip = true;
         }
 
-        public void HazHadCatNip()
+        public void HazHadCatNip()//simple usage of unique variable in a method
         {
             Console.WriteLine("Has {0} Already had his CatNip?  Y/any other for no", this.Name);
             if (Console.ReadKey().Key == ConsoleKey.Y && this.CatNip == false)

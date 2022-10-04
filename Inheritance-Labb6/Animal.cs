@@ -128,7 +128,7 @@ namespace Petting_Zoo
             this.CurrentLocation = location;
             this.Sound = sound;
         }
-        public void PlayTime()
+        public void PlayTime()//simple usage of unique variable in a method
         {
             Console.WriteLine("Has {0} Played with a Visitor Recently? Y/any other for no", this.Name);
 
@@ -184,7 +184,7 @@ namespace Petting_Zoo
             this.HasAttackedRecently = hasAttackedRecently;
         }
 
-        public void AttackedRecently()
+        public void AttackedRecently()//simple usage of unique variable in a method
         {
             Console.WriteLine("Has {0} Attacked a Visitor Recently? Y/any other for no", this.Name);
 
