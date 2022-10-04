@@ -31,8 +31,8 @@ namespace Petting_Zoo
         {
 
             this.Name = "Rules of the internet: if enountered Something went Wrong...";
-            this.NumberOfAppendages = 63;
-            this.Age = 34;
+            this.NumberOfAppendages = 34;
+            this.Age = 35;
             this.AnimalDiet = "Not an Animal in the typical sense";
             this.HasYoung = false;
             this.HasBeenFedToday = false;
@@ -59,7 +59,7 @@ namespace Petting_Zoo
             this.Breed = breed;
         }
 
-        public virtual void MakeSound()
+        public void MakeSound()
         {
             //Method asks for the Obj's Sound variable and prints it to console, if it's empty it will use the default value
             Console.WriteLine(this.Sound);
