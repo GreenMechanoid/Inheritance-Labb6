@@ -12,13 +12,13 @@ namespace Petting_Zoo
         protected string CurrentMood; // unique identifier for Cats, as they can be tempremental
 
         public Cats(string name, int appendages, int age
-            , string animalType, bool hasYoung, bool beenFed
+            , string animalDiet, bool hasYoung, bool beenFed
             , bool wild, bool sentient, string sound, string location, string breed, string mood)
         {
             this.Name = name;
             this.NumberOfAppendages = appendages;
             this.Age = age;
-            this.AnimalDiet = animalType;
+            this.AnimalDiet = animalDiet;
             this.HasYoung = hasYoung;
             this.HasBeenFedToday = beenFed;
             this.Wild = wild;
@@ -53,9 +53,10 @@ namespace Petting_Zoo
             if (Console.ReadKey().Key == ConsoleKey.Y)
             {
                 Console.WriteLine("What is the New mood of {0} then?",this.Name);
+                Console.Write("What's the Mood? : ");
                 inputString = Console.ReadLine();
-                Console.WriteLine("\n{0} Mood has now been changed to {1}", this.Name, this.CurrentMood);
                 this.CurrentMood = inputString;
+                Console.WriteLine("\n{0} Mood has now been changed to {1}", this.Name, this.CurrentMood);
             }
             else
             {
@@ -111,9 +112,10 @@ namespace Petting_Zoo
             Console.WriteLine("Has {0} Aquired a new Quirk?  Y/any other for no", this.Name);
             if (Console.ReadKey().Key == ConsoleKey.Y)
             {
+                Console.Write("What's the Quirk? : ");
                 inputString = Console.ReadLine();
-                Console.WriteLine("\n{0} Has now been rigistered to {1}",this.CatQuirk, this.Name);
                 this.CatQuirk = inputString;
+                Console.WriteLine("\nQuirk : {0} Has now been registered to {1}",this.CatQuirk, this.Name);
             }
             else
             {
@@ -169,8 +171,8 @@ namespace Petting_Zoo
             Console.WriteLine("Has {0} Already had his CatNip?  Y/any other for no", this.Name);
             if (Console.ReadKey().Key == ConsoleKey.Y && this.CatNip == false)
             {
-                Console.WriteLine("\nThat Sweet Sweet Catnip! {0}", this.Name);
                 this.CatNip = true;
+                Console.WriteLine("\nThat Sweet Sweet Catnip! {0}", this.Name);
             }
             else
             {

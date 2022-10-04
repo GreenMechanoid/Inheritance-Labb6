@@ -75,15 +75,16 @@ namespace Petting_Zoo
         
         public void FeedingTime()
         {
+            
             Console.WriteLine("Has {0} Already been fed?  Y/any other for no", this.Name);
             if (Console.ReadKey().Key == ConsoleKey.Y && this.HasBeenFedToday == false)
             {
-                Console.WriteLine("\n{0} is already full from dinner and snacks!", this.Name);
+                Console.WriteLine("\nThat calls for some suppertime then!. Enjoy your meal {0}", this.Name);
+                this.HasBeenFedToday = true;
             }
             else
             {
-                Console.WriteLine("\nThat calls for some suppertime then!. Enjoy your meal {0}", this.Name);
-                this.HasBeenFedToday = true;
+                Console.WriteLine("\n{0} is already full from dinner and snacks!", this.Name);
             }
         }
     }
@@ -134,7 +135,7 @@ namespace Petting_Zoo
 
             if (Console.ReadKey().Key == ConsoleKey.Y)
             {
-                Console.WriteLine("\n{0} Is all tuckerd out from plating", this.Name);
+                Console.WriteLine("\n{0} Is all tuckerd out from playing", this.Name);
                 this.WantsToPlay = true;
             }
             else
@@ -190,8 +191,8 @@ namespace Petting_Zoo
 
             if (Console.ReadKey().Key == ConsoleKey.Y) 
             {
-                Console.WriteLine("\nThat calls for some time alone then. {0} will be moved to Isolation", this.Name);
                 this.CurrentLocation = "Isolation";
+                Console.WriteLine("\nThat calls for some time alone then. {0} will be moved to {1}", this.Name,this.CurrentLocation);
             }
             else
             {
