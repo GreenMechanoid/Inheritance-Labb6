@@ -7,9 +7,14 @@ namespace Petting_Zoo //yes im making this a petting zoo, Skritches to the anima
     {
         static void Main(string[] args)
         {
-                
 
+            Animal anima = new Animal();
 
+            Cats cat = new Cats();
+
+            anima.MakeSound();
+
+            cat.MakeSound();
         }
     }
 }

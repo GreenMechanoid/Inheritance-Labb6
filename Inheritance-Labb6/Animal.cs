@@ -26,7 +26,7 @@ namespace Petting_Zoo
         protected bool IsAvailableForPublic = false;
         protected string Breed;
 
-        protected Animal() //Default variable value's
+        public Animal() //Default variable value's
                            //Nonsensical variables for animals, but kinda funny for debugging
         {
 
@@ -42,7 +42,7 @@ namespace Petting_Zoo
             this.SentientErrorCheck = false;
             this.Breed = "does not exist";
         }
-        protected Animal(string name, int appendages,int age,int population,string animalDiet
+        public Animal(string name, int appendages,int age,int population,string animalDiet
                 ,bool hasYoung,bool hasBeenFed,bool wild,string sound, string breed)
             //full population of variables for the Base Animal Class,
         {
@@ -59,7 +59,7 @@ namespace Petting_Zoo
             this.Breed = breed;
         }
 
-        public void MakeSound()
+        public virtual void MakeSound()
         {
             //Method asks for the Obj's Sound variable and prints it to console, if it's empty it will use the default value
             Console.WriteLine(this.Sound);
@@ -70,49 +70,6 @@ namespace Petting_Zoo
         {
             
         }
-
-    }
-
-
-    internal class Cats : Animal 
-    {
-        protected string CurrentMood; // unique identifier for Cats, as they can be fickle
-
-        public Cats(string name, int appendages, int age, int population
-            , string animalType, bool hasYoung, bool beenFed
-            , bool wild, bool sentient, string sound, string breed, string mood)
-        {
-            this.Name = name;
-            this.NumberOfAppendages = appendages;
-            this.Age = age;
-            this.Population = population;
-            this.AnimalDiet = animalType;
-            this.HasYoung = hasYoung;
-            this.HasBeenFedToday = beenFed;
-            this.Wild = wild;
-            this.SentientErrorCheck = sentient;
-            this.Sound = sound;
-
-            this.Breed = breed;
-            this.CurrentMood = mood;
-        }
-        public Cats()
-        {
-            this.Breed = "Tabby mcTabbington";
-            this.CurrentMood = "Not Amused";
-
-            this.Name = "Terror of McError";
-            this.NumberOfAppendages = 4;
-            this.Age = 6428;
-            this.Population = 1;
-            this.AnimalDiet = "Carnivore";
-            this.HasYoung = false;
-            this.HasBeenFedToday = false;
-            this.Wild = true;
-            this.SentientErrorCheck = true;
-            this.Sound = "Meow!, i'm a ExtraSolar being, stop fussing over me Human!";
-
-        }//empty with default values
 
     }
 
@@ -197,91 +154,5 @@ namespace Petting_Zoo
         }
 
     }
-    internal class Manx : Cats 
-    {
-        protected string CatQuirk; // unique to Manx
-        public Manx(string breed, string mood, string name, int appendages, int age, int population
-            , string animalType, bool hasYoung, bool beenFed
-            , bool wild, bool sentient, string sound, string catQuirk)
-        {
-            this.Breed = breed;
-            this.CurrentMood = mood;
-
-            this.Name = name;
-            this.NumberOfAppendages = appendages;
-            this.Age = age;
-            this.Population = population;
-            this.AnimalDiet = animalType;
-            this.HasYoung = hasYoung;
-            this.HasBeenFedToday = beenFed;
-            this.Wild = wild;
-            this.SentientErrorCheck = sentient;
-            this.Sound = sound;
-            this.CatQuirk = catQuirk;
-        }
-        public Manx()
-        {
-            this.Breed = "I'm not a proper Instance";
-            this.CurrentMood = "Pissed at subordinate for drugs";
-
-            this.Name = "Captain. Floofers the second";
-            this.NumberOfAppendages = 4;
-            this.Age = 8844;
-            this.Population = 1;
-            this.AnimalDiet = "Undefined";
-            this.HasYoung = false;
-            this.HasBeenFedToday = false;
-            this.Wild = true;
-            this.SentientErrorCheck = true;
-            this.Sound = "No You cannot have CatNip on this Ship!" +
-                "I am the Captain," +
-                " and you will follow my command Soldier or i will have you tossed in the brig for insubordination"; // continues in NorwegianForestCat
-            this.CatQuirk = "Iron-will Captain";
-        }
-
-    }
-
-
-    internal class NorwegianForestCat : Cats
-    {
-        protected string FurPattern; // unique to NorwegianForestCat
-        public NorwegianForestCat(string breed, string mood, string name, int appendages, int age, int population
-            , string animalType, bool hasYoung, bool beenFed
-            , bool wild, bool sentient, string sound, string furPattern)
-        {
-            this.Breed = breed;
-            this.CurrentMood = mood;
-
-            this.Name = name;
-            this.NumberOfAppendages = appendages;
-            this.Age = age;
-            this.Population = population;
-            this.AnimalDiet = animalType;
-            this.HasYoung = hasYoung;
-            this.HasBeenFedToday = beenFed;
-            this.Wild = wild;
-            this.SentientErrorCheck = sentient;
-            this.Sound = sound;
-            this.FurPattern = furPattern;
-        }
-
-        public NorwegianForestCat()
-        {
-            this.Breed = "I'm not a proper Instance";
-            this.CurrentMood = "Scared by superior due to drugs have been found";
-
-            this.Name = "Ensign Flick";
-            this.NumberOfAppendages = 4;
-            this.Age = 256;
-            this.Population = 1;
-            this.AnimalDiet = "Undefined";
-            this.HasYoung = false;
-            this.HasBeenFedToday = false;
-            this.Wild = true;
-            this.SentientErrorCheck = true;
-            this.Sound = "Sir Yes Sir! - (mumbles under breath, you overfloofed wet blanket..)";
-            this.FurPattern = "Speckeled gray long hair";
-        }
-
-    }
+    
 }
