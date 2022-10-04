@@ -65,15 +65,27 @@ namespace Petting_Zoo
             Console.WriteLine(this.Sound);
         }
         
-        public void AnimalMoveing()
+        public void AnimalMoveing() // just a simple reassignement of the location and printing of it again
         {
-            Console.WriteLine("Current Location: {0}",this.CurrentLocation);
+            Console.WriteLine(this.Name + "'s Current Location: {0}",this.CurrentLocation);
             Console.WriteLine("Where will the animal be moved?");
             this.CurrentLocation = Console.ReadLine();
             Console.WriteLine(this.Name + " Has now been moved to : {0}", this.CurrentLocation);
-            
         }
-
+        
+        public void FeedingTime()
+        {
+            Console.WriteLine("Has {0} Already been fed?  Y/any other for no", this.Name);
+            if (Console.ReadKey().Key == ConsoleKey.Y && this.HasBeenFedToday == false)
+            {
+                Console.WriteLine("\n{0} is already full from dinner and snacks!", this.Name);
+            }
+            else
+            {
+                Console.WriteLine("\nThat calls for some suppertime then!. Enjoy your meal {0}", this.Name);
+                this.HasBeenFedToday = true;
+            }
+        }
     }
 
     internal class Dogs : Animal
@@ -116,12 +128,26 @@ namespace Petting_Zoo
             this.CurrentLocation = location;
             this.Sound = sound;
         }
+        public void PlayTime()
+        {
+            Console.WriteLine("Has {0} Played with a Visitor Recently? Y/any other for no", this.Name);
 
+            if (Console.ReadKey().Key == ConsoleKey.Y)
+            {
+                Console.WriteLine("\n{0} Is all tuckerd out from plating", this.Name);
+                this.WantsToPlay = true;
+            }
+            else
+            {
+                Console.WriteLine("\nThat calls for some playtime! get to it {0}", this.Name);
+                this.WantsToPlay = false;
+            }
+        }
     }
 
     internal class Sheep : Animal
     {
-        bool HasBeenSheared = false; //assuming it's the wrong season for it currently also unique for the sheep
+        bool HasAttackedRecently; //assuming it's the wrong season for it currently also unique for the sheep
 
         public Sheep()
         //empty with default values
@@ -137,13 +163,12 @@ namespace Petting_Zoo
             this.SentientErrorCheck = true;
             this.CurrentLocation = "Corridor to Medbay of USMC Sacred Drop";
             this.Sound = "BaaaHHH, Stop yelling near the medical ward!";
-            this.HasBeenSheared = true;
+            this.HasAttackedRecently = true;
         }
         public Sheep(string breed, string name, int appendages, int age
             , string animalType, bool hasYoung, bool beenFed
-            , bool wild, bool sentient, string sound, string location, bool hasBeenSheared)
+            , bool wild, bool sentient, string sound, string location, bool hasAttackedRecently)
         {
-            this.HasBeenSheared = hasBeenSheared;
 
             this.Breed = breed;
             this.Name = name;
@@ -154,8 +179,24 @@ namespace Petting_Zoo
             this.HasBeenFedToday = beenFed;
             this.Wild = wild;
             this.SentientErrorCheck = sentient;
-            this.CurrentLocation = location;
             this.Sound = sound;
+            this.CurrentLocation = location;
+            this.HasAttackedRecently = hasAttackedRecently;
+        }
+
+        public void AttackedRecently()
+        {
+            Console.WriteLine("Has {0} Attacked a Visitor Recently? Y/any other for no", this.Name);
+
+            if (Console.ReadKey().Key == ConsoleKey.Y) 
+            {
+                Console.WriteLine("\nThat calls for some time alone then. {0} will be moved to Isolation", this.Name);
+                this.CurrentLocation = "Isolation";
+            }
+            else
+            {
+                Console.WriteLine("\n{0} Uses Headbutt!.. But it missed..",this.Name);
+            }
         }
 
     }

@@ -9,7 +9,7 @@ namespace Petting_Zoo
 {
     internal class Cats : Animal
     {
-        protected string CurrentMood; // unique identifier for Cats, as they can be fickle
+        protected string CurrentMood; // unique identifier for Cats, as they can be tempremental
 
         public Cats(string name, int appendages, int age
             , string animalType, bool hasYoung, bool beenFed
@@ -28,7 +28,7 @@ namespace Petting_Zoo
             this.Breed = breed;
             this.CurrentMood = mood;
         }
-        public Cats()
+        public Cats() 
         //empty with default values
         {
             this.Breed = "Tabby mcTabbington";
@@ -46,17 +46,32 @@ namespace Petting_Zoo
             this.Sound = "Meow!, i'm a ExtraSolar being, stop fussing over me Human!";
 
         }
-
+        public void ChangeMood()
+        {
+            string inputString;
+            Console.WriteLine("Current mood of {0} is {1}, Has it's mood changed? Y/any", this.Name, this.CurrentMood);
+            if (Console.ReadKey().Key == ConsoleKey.Y)
+            {
+                Console.WriteLine("What is the New mood of {0} then?",this.Name);
+                inputString = Console.ReadLine();
+                Console.WriteLine("\n{0} Mood has now been changed to {1}", this.Name, this.CurrentMood);
+                this.CurrentMood = inputString;
+            }
+            else
+            {
+                Console.WriteLine("\nWell {0} we can't really force the issue.. so stay {1}",this.Name,this.CurrentMood);
+            }
+        }
     }
 
     internal class Manx : Cats
     {
         protected string CatQuirk; // unique to Manx
-        public Manx(string breed, string mood, string name, int appendages, int age
+        public Manx(string mood, string name, int appendages, int age
             , string animalType, bool hasYoung, bool beenFed
             , bool wild, bool sentient, string sound, string location, string catQuirk)
         {
-            this.Breed = breed;
+            this.Breed = "Manx";
             this.CurrentMood = mood;
 
             this.Name = name;
@@ -90,18 +105,32 @@ namespace Petting_Zoo
                 " and you will follow my command Soldier or i will have you tossed in the brig for insubordination"; // continues in NorwegianForestCat
             this.CatQuirk = "Iron-will Captain";
         }
-
+        public void GainedCatQuirk()
+        {
+            string inputString;
+            Console.WriteLine("Has {0} Aquired a new Quirk?  Y/any other for no", this.Name);
+            if (Console.ReadKey().Key == ConsoleKey.Y)
+            {
+                inputString = Console.ReadLine();
+                Console.WriteLine("\n{0} Has now been rigistered to {1}",this.CatQuirk, this.Name);
+                this.CatQuirk = inputString;
+            }
+            else
+            {
+                Console.WriteLine("\n{0} Has no new quirks", this.Name);
+            }
+        }
     }
 
 
     internal class NorwegianForestCat : Cats
     {
-        protected string FurPattern; // unique to NorwegianForestCat
-        public NorwegianForestCat(string breed, string mood, string name, int appendages, int age
+        protected bool CatNip; // unique to NorwegianForestCat
+        public NorwegianForestCat(string mood, string name, int appendages, int age
             , string animalType, bool hasYoung, bool beenFed
-            , bool wild, bool sentient, string sound, string location, string furPattern)
+            , bool wild, bool sentient, string sound, string location, bool catNip)
         {
-            this.Breed = breed;
+            this.Breed = "Norwegian forest cat";
             this.CurrentMood = mood;
 
             this.Name = name;
@@ -114,7 +143,7 @@ namespace Petting_Zoo
             this.SentientErrorCheck = sentient;
             this.Sound = sound;
             this.CurrentLocation = location;
-            this.FurPattern = furPattern;
+            this.CatNip = catNip;
         }
 
         public NorwegianForestCat()
@@ -132,7 +161,21 @@ namespace Petting_Zoo
             this.SentientErrorCheck = true;
             this.CurrentLocation = "Corridor to the bridge at USMC Sacred Drop";
             this.Sound = "Sir Yes Sir! - (mumbles under breath, you overfloofed wet blanket..)";
-            this.FurPattern = "Speckeled gray long hair";
+            this.CatNip = true;
+        }
+
+        public void HazHadCatNip()
+        {
+            Console.WriteLine("Has {0} Already had his CatNip?  Y/any other for no", this.Name);
+            if (Console.ReadKey().Key == ConsoleKey.Y && this.CatNip == false)
+            {
+                Console.WriteLine("\nThat Sweet Sweet Catnip! {0}", this.Name);
+                this.CatNip = true;
+            }
+            else
+            {
+                Console.WriteLine("\n{0} Noo! givez more catnipz!", this.Name);
+            }
         }
 
     }
