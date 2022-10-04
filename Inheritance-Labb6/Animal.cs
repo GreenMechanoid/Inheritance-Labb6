@@ -6,6 +6,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 
+/*
+ * I know that in these classes we can use Virtual and Overloading for certain methods, like MakeSound().
+ * But as this will have the same effect to an Overload of them. 
+ * by storing the sound inside the baseclass and also the method and we're not really doing anything diffrent with the method in the others,
+ * then it's complete overflow of extra "unnecessary" bits of code that muddle the structure, hence why it's not used.
+ */
+
+
+
 namespace Petting_Zoo
 {
     internal class Animal  
@@ -23,7 +32,7 @@ namespace Petting_Zoo
         protected string Sound;
         protected bool SentientErrorCheck; //joke varaible for checking default class values.
         protected bool IsAvailableForPublic = false;
-
+        protected string Breed;
 
         protected Animal() //Default variable value's
                            //Nonsensical variables for animals, but kinda funny for debugging
@@ -67,7 +76,8 @@ namespace Petting_Zoo
         {
             
         }
-        public void AvailableForPublic(bool available) // when they are transfered or otherwise not longer with the zoo
+
+        public void ModifyAnimal() // Method will be used in case of incorrect input in the making of the animal
         {
 
         }
@@ -77,9 +87,7 @@ namespace Petting_Zoo
 
     internal class Cats : Animal 
     {
-        protected string Breed;
         protected bool WantsPetting;
-
 
         public Cats(string name, int appendages, int age, int population
             , string animalType, bool hasYoung, bool beenFed
@@ -120,7 +128,6 @@ namespace Petting_Zoo
 
     internal class Dogs : Animal
     {
-        protected string Breed;
         protected bool WantsToPlay; 
         public Dogs()
         {
@@ -170,7 +177,7 @@ namespace Petting_Zoo
 
         public Manx(string breed, bool petting, string name, int appendages, int age, int population
             , string animalType, bool hasYoung, bool beenFed
-            , bool wild, bool sentient, string sound) // 
+            , bool wild, bool sentient, string sound)
         {
             this.Breed = breed;
             this.WantsPetting = petting;
@@ -247,6 +254,4 @@ namespace Petting_Zoo
             this.Sound = "Sir Yes Sir! - (mumbles under breath, you overfloofed wet blanket..)";
         }
     }
-
-
 }
