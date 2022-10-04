@@ -6,14 +6,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 
-/*
- * I know that in these classes we can use Virtual and Overloading for certain methods, like MakeSound().
- * But as this will have the same effect to an Overload of them. 
- * by storing the sound inside the baseclass and also the method and we're not really doing anything diffrent with the method in the others,
- * then it's complete overflow of extra "unnecessary" bits of code that muddle the structure, hence why it's not used.
- */
-
-
 
 namespace Petting_Zoo
 {
@@ -48,9 +40,10 @@ namespace Petting_Zoo
             this.Wild = false;
             this.Sound = "There is no sound";
             this.SentientErrorCheck = false;
+            this.Breed = "does not exist";
         }
         protected Animal(string name, int appendages,int age,int population,string animalDiet
-                ,bool hasYoung,bool hasBeenFed,bool wild,string sound)
+                ,bool hasYoung,bool hasBeenFed,bool wild,string sound, string breed)
             //full population of variables for the Base Animal Class,
         {
             this.Name = name;
@@ -63,6 +56,7 @@ namespace Petting_Zoo
             this.Wild = wild;
             this.Sound = sound;
             this.SentientErrorCheck = false;
+            this.Breed = breed;
         }
 
         public void MakeSound()
@@ -77,7 +71,7 @@ namespace Petting_Zoo
             
         }
 
-        public void ModifyAnimal() // Method will be used in case of incorrect input in the making of the animal
+        public virtual void ModifyAnimal() // Method will be used in case of incorrect input in the making of the animal
         {
 
         }
@@ -87,11 +81,11 @@ namespace Petting_Zoo
 
     internal class Cats : Animal 
     {
-        protected bool WantsPetting;
+        protected string CurrentMood; // unique identifier for Cats, as they can be fickle
 
         public Cats(string name, int appendages, int age, int population
             , string animalType, bool hasYoung, bool beenFed
-            , bool wild, bool sentient, string sound, string breed, bool petting)
+            , bool wild, bool sentient, string sound, string breed, string mood)
         {
             this.Name = name;
             this.NumberOfAppendages = appendages;
@@ -105,12 +99,12 @@ namespace Petting_Zoo
             this.Sound = sound;
 
             this.Breed = breed;
-            this.WantsPetting = petting;
+            this.CurrentMood = mood;
         }
         public Cats()
         {
             this.Breed = "Tabby mcTabbington";
-            this.WantsPetting = false;
+            this.CurrentMood = "Not Amused";
 
             this.Name = "Terror of McError";
             this.NumberOfAppendages = 4;
@@ -124,11 +118,15 @@ namespace Petting_Zoo
             this.Sound = "Meow!, i'm a ExtraSolar being, stop fussing over me Human!";
 
         }//empty with default values
+        public override void ModifyAnimal()
+        {
+
+        }
     }
 
     internal class Dogs : Animal
     {
-        protected bool WantsToPlay; 
+        protected bool WantsToPlay; // unique for doggos
         public Dogs()
         {
             this.Breed = "Labby Sloberton";
@@ -165,23 +163,38 @@ namespace Petting_Zoo
             this.SentientErrorCheck = sentient;
             this.Sound = sound;
         }
+        public override void ModifyAnimal()
+        {
+
+        }
     }
 
     internal class Sheep : Animal
     {
-        bool _hasBeenSheared = false; //assuming it's the wrong season for it currently
-    }
-    internal class Manx : Cats 
-    {
+        bool HasBeenSheared = false; //assuming it's the wrong season for it currently also unique for the sheep
 
-
-        public Manx(string breed, bool petting, string name, int appendages, int age, int population
-            , string animalType, bool hasYoung, bool beenFed
-            , bool wild, bool sentient, string sound)
+        public Sheep()
         {
-            this.Breed = breed;
-            this.WantsPetting = petting;
+            this.Breed = "Master of Shears";
+            this.Name = "Doc Shearington'";
+            this.NumberOfAppendages = 4;
+            this.Age = 1248;
+            this.Population = 1;
+            this.AnimalDiet = "Herbivore";
+            this.HasYoung = false;
+            this.HasBeenFedToday = true;
+            this.Wild = true;
+            this.SentientErrorCheck = true;
+            this.Sound = "BaaaHHH, Stop yelling near the medical ward!";
+            this.HasBeenSheared = true;
+        }
+        public Sheep(string breed, string name, int appendages, int age, int population
+            , string animalType, bool hasYoung, bool beenFed
+            , bool wild, bool sentient, string sound, bool hasBeenSheared)
+        {
+            this.HasBeenSheared = hasBeenSheared;
 
+            this.Breed = breed;
             this.Name = name;
             this.NumberOfAppendages = appendages;
             this.Age = age;
@@ -193,10 +206,37 @@ namespace Petting_Zoo
             this.SentientErrorCheck = sentient;
             this.Sound = sound;
         }
+        public override void ModifyAnimal()
+        {
+
+        }
+    }
+    internal class Manx : Cats 
+    {
+        protected string CatQuirk; // unique to Manx
+        public Manx(string breed, string mood, string name, int appendages, int age, int population
+            , string animalType, bool hasYoung, bool beenFed
+            , bool wild, bool sentient, string sound, string catQuirk)
+        {
+            this.Breed = breed;
+            this.CurrentMood = mood;
+
+            this.Name = name;
+            this.NumberOfAppendages = appendages;
+            this.Age = age;
+            this.Population = population;
+            this.AnimalDiet = animalType;
+            this.HasYoung = hasYoung;
+            this.HasBeenFedToday = beenFed;
+            this.Wild = wild;
+            this.SentientErrorCheck = sentient;
+            this.Sound = sound;
+            this.CatQuirk = catQuirk;
+        }
         public Manx()
         {
             this.Breed = "I'm not a proper Instance";
-            this.WantsPetting = false;
+            this.CurrentMood = "Pissed at subordinate for drugs";
 
             this.Name = "Captain. Floofers the second";
             this.NumberOfAppendages = 4;
@@ -210,20 +250,24 @@ namespace Petting_Zoo
             this.Sound = "No You cannot have CatNip on this Ship!" +
                 "I am the Captain," +
                 " and you will follow my command Soldier or i will have you tossed in the brig for insubordination"; // continues in NorwegianForestCat
+            this.CatQuirk = "Iron-will Captain";
         }
+        public override void ModifyAnimal()
+        {
 
+        }
     }
 
 
     internal class NorwegianForestCat : Cats
     {
-        
-        public NorwegianForestCat(string breed, bool petting, string name, int appendages, int age, int population
+        protected string FurPattern; // unique to NorwegianForestCat
+        public NorwegianForestCat(string breed, string mood, string name, int appendages, int age, int population
             , string animalType, bool hasYoung, bool beenFed
-            , bool wild, bool sentient, string sound)
+            , bool wild, bool sentient, string sound, string furPattern)
         {
             this.Breed = breed;
-            this.WantsPetting = petting;
+            this.CurrentMood = mood;
 
             this.Name = name;
             this.NumberOfAppendages = appendages;
@@ -235,12 +279,13 @@ namespace Petting_Zoo
             this.Wild = wild;
             this.SentientErrorCheck = sentient;
             this.Sound = sound;
+            this.FurPattern = furPattern;
         }
 
         public NorwegianForestCat()
         {
             this.Breed = "I'm not a proper Instance";
-            this.WantsPetting = false;
+            this.CurrentMood = "Scared by superior due to drugs have been found";
 
             this.Name = "Ensign Flick";
             this.NumberOfAppendages = 4;
@@ -252,6 +297,11 @@ namespace Petting_Zoo
             this.Wild = true;
             this.SentientErrorCheck = true;
             this.Sound = "Sir Yes Sir! - (mumbles under breath, you overfloofed wet blanket..)";
+            this.FurPattern = "Speckeled gray long hair";
+        }
+        public override void ModifyAnimal() 
+        {
+
         }
     }
 }
