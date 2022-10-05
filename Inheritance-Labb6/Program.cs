@@ -31,18 +31,23 @@ namespace Petting_Zoo //yes im making this a petting zoo, Skritches to the anima
             Console.Write("I am a NorwegianForestCat: ");
             norwForest.MakeSound();
 
-            Thread.Sleep(3000);
-
+            Thread.Sleep(3000); //putting the program to sleep for 3 sec, so user can read the outputs
+            //calling what unique methods the classes have.
             manx.GainedCatQuirk();
             Thread.Sleep(3000);
+
             norwForest.HazHadCatNip();
             Thread.Sleep(3000);
+
             cat.ChangeMood();
             Thread.Sleep(3000);
+
             sheep.AttackedRecently();
             Thread.Sleep(3000);
+
             dog.PlayTime();
         }
 
     }
 }
+
