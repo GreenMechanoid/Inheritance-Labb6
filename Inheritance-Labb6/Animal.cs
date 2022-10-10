@@ -12,6 +12,7 @@ using System.Xml.Linq;
 namespace Petting_Zoo
 {
     internal class Animal  
+        // if we we're supposed to use Polymorphism then this would be a Abstract class inc. all that entails
         //Baseclass for Animals meant for inheriting the values in a child-class
         
     {
@@ -28,7 +29,7 @@ namespace Petting_Zoo
         protected string Breed;
 
         public Animal() //Default variable value's
-                           //Nonsensical variables for animals, but kinda funny for debugging
+                        //Nonsensical variables for animals, but kinda funny for debugging   
         {
 
             this.Name = "Rules of the internet: if enountered Something went Wrong...";
@@ -91,6 +92,7 @@ namespace Petting_Zoo
     }
 
     internal class Dogs : Animal
+        //i'd probably make this into a abstract class, as it's a Basetype animal of Dog
     {
         protected bool WantsToPlay; // unique for doggos
         public Dogs()
@@ -148,7 +150,7 @@ namespace Petting_Zoo
     }
 
     internal class Sheep : Animal
-    {
+    {//as this is the only instance of basetype 'Sheep' and not inherited it would reamin like this or something close to it
         bool HasAttackedRecently; //assuming it's the wrong season for it currently also unique for the sheep
 
         public Sheep()

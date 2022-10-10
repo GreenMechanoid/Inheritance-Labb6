@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 namespace Petting_Zoo
 {
     internal class Cats : Animal
+    //i'd probably make this into a abstract class, as it's a Basetype animal of Cats
     {
         protected string CurrentMood; // unique identifier for Cats, as they can be tempremental
 
@@ -66,6 +67,7 @@ namespace Petting_Zoo
     }
 
     internal class Manx : Cats
+    //this class would remain the same or close to it if polymorphism was in here
     {
         protected string CatQuirk; // unique to Manx
         public Manx(string mood, string name, int appendages, int age
@@ -126,6 +128,7 @@ namespace Petting_Zoo
 
 
     internal class NorwegianForestCat : Cats
+    //this class would remain the same or close to it if polymorphism was in here
     {
         protected bool CatNip; // unique to NorwegianForestCat
         public NorwegianForestCat(string mood, string name, int appendages, int age
