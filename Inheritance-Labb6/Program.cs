@@ -50,17 +50,3 @@ namespace Petting_Zoo //yes im making this a petting zoo, Skritches to the anima
 
     }
 }
-
-/*
- * There is so many things i have to tell about this lab..
- * first being pushed to use polymorphism for basic inheritance lab for the newer to programing is just wrong..
- * they have plenty to implement without it.. 
- * the entire section of lessons has been missing a "red thread" in how to learn the sections from classes -> inheritance..
- * Even introducing Abstract classes and Interfaces way before they were supposed to be introduced in the curriculum just muddles the waters on what we're supposed to learn
- * hell even according to the schedule we're not supposed to be introduced to the for-Mentioned Interface until long after this lab is due, so why include it in the lessons???
- * 
- * Meaning this lab has been done to the MINIMUM due to the other class students needing help in understanding almost every lesson.
- * i have although put in How i would do it if Polymorphism was the goal of the lab - which it clearly is not.. it's for basic inheritance
- * 
- * this is draft 6 of the critique, as the other's have been a bit too hot-headed in how they we're written.
- */
